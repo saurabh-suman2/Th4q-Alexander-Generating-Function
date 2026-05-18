@@ -35,7 +35,7 @@ R_E2 = L * L.subs(E=-E)
 C = [R_E2[2*i] for i in range(9)] 
 
 H = []
-for k in range(15):
+for k in range(25):
     q = 2*k + 3
     F_q = (M^q).charpoly(E).subs(E=1)
     H.append(F_q / (1 + t + t^2 + t^3))
@@ -53,5 +53,23 @@ ratio = F_t(H[0]) / F_t(sage_poly)
 assert ratio.numerator().degree() == ratio.numerator().valuation(), "Topological mismatch"
 assert ratio.denominator().degree() == ratio.denominator().valuation(), "Topological mismatch"
 print("  -> Matrix-generated polynomial matches standard Alexander invariant.")
+
+
+print("[5/5] Verifying Fox's Trapezoidal Conjecture (Strict Log-Concavity)...")
+
+def check_log_concavity(poly):
+    coeffs = [abs(c) for c in poly.numerator().coefficients(sparse=False)]
+    if 0 in coeffs:
+        return False
+    for i in range(1, len(coeffs) - 1):
+        if coeffs[i]^2 <= coeffs[i-1] * coeffs[i+1]:
+            return False
+            
+    return True
+
+
+all_log_concave = all(check_log_concavity(poly) for poly in H)
+assert all_log_concave, "Fox's Conjecture (Log-concavity) failed for a polynomial!"
+print("  -> Strict log-concavity verified for all computed polynomials.")
 
 print("\nAll theorems computationally verified.")
