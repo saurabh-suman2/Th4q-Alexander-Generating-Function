@@ -2,8 +2,9 @@ R_t.<t> = QQ[]
 F_t = FractionField(R_t)
 R_E.<E> = PolynomialRing(F_t)
 
-# --- USER INPUTS ---
+# Put your denominator coeff of generating function, matrix block and q value below
 TARGET_Q = 7
+
 
 M = Matrix(F_t, [
     [1-1/t, 0, -1],
