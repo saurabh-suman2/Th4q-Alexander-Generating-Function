@@ -7,7 +7,7 @@ The proofs in the manuscript hold analytically. These scripts provide exact-arit
 ## Repository Contents
 
 ### I. Foundational Matrix Operations
-* **`matrix_inv`** (and related matrix scripts)
+* **`matrix_invriants.sage`**
   Computes the reduced Burau representation matrices for the standard braid generators of $Th(4, 2n+1)$. Evaluates the characteristic polynomial, principal minors, and trace invariants of the fundamental matrix block $M(t)$ to establish the baseline determinant sequences prior to the shift operator reduction.
 
 ### II. Annihilating Operators and Generating Functions
@@ -21,8 +21,10 @@ The proofs in the manuscript hold analytically. These scripts provide exact-arit
   Symbolically and numerically verifies the Chebyshev spectral factorization. It constructs the explicit trigonometric product representation of $A_{2n+1}(z)$ and cross-verifies the expanded coefficients against the direct topological determinant expansions.
 
 ### IV. Combinatorics and Convolutions
-* **`Cauchy_conv`** (and related sequence scripts)
-  Implements the discrete Cauchy convolution of the extracted polynomial sequences. Used to analyze the initial sequence interactions, isolate the algebraic cross-terms, and test structural properties of the coefficients prior to the hypergeometric formulation.
+* **`Cauchy_convolution`**
+  Derives the explicit numerator polynomials $N(x,t)$ via discrete Cauchy convolution of the unnormalized sequence.
+* **`recurrence_operator.sage`**
+  Computes the exact even-step annihilator from the Burau matrix characteristic polynomial and its exterior square.
 
 ### V. Empirical Wronskian Bounds
 * **`empirical_wronskian_check.py`**
