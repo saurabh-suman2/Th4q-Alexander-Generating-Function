@@ -1,20 +1,29 @@
-# Th(4,q) Alexander Polynomial Generating Function
+# Computational Verification Suite for 4-Strand Turk's Head Knots
 
-Computational supplement for the preprint: *"Rational Generating Functions and Trapezoidality for the Mixed-Sign Turk's Head Family Th(4,q)"*.
+This repository contains the SageMath and Python scripts used to computationally verify the algebraic identities, rational generating functions, and discrete sequence bounds presented in the manuscript *Rational Generating Functions and Hypergeometric Reduction of Alexander Polynomials for 4-Strand Turk's Head Knots*.
 
-This repository contains the SageMath scripts used to algebraically derive the explicit generating function and computationally verify the structural theorems presented in the manuscript.
+The proofs in the manuscript hold analytically. These scripts provide exact-arithmetic validation for specific finite cases of the structural theorems and explicitly compute the polynomial expansions recorded in the appendices.
 
 ## Repository Contents
 
-* `matrix_invariants.sage`: Generates initial empirical Alexander polynomials for the odd-$q$ subsequence and demonstrates the singularity/failure of low-order matrix solvers.
-* `recurrence_operator.sage`: Computes the exact even-step annihilator from the Burau matrix characteristic polynomial and its exterior square.
-* `cauchy_convolution.sage`: Derives the explicit numerator polynomials $N(x,t)$ via discrete Cauchy convolution of the unnormalized sequence.
-* `reproduce_paper_results.sage`: The master test suite. It uses strict assertions to computationally verify the characteristic polynomials, the order-8 recurrence relation, and the exact topological match with standard knot databases for $q \le 35$.
-* `rgf_generator.sage`: A fully automated algebraic pipeline that takes a $3 \times 3$ reduced Burau matrix as input, computes the exterior trace decomposition, applies the even-step transformation, and outputs the exact rational generating function for the knot family.
+### Section 2: Annihilating Operators and Generating Functions
 
-## Verification
+* **`generating_function_denominator.sage`**
+Derives the exact denominator polynomial $D(x,t)$ for the rational generating function. It constructs the order-8 annihilating operator from the reduced Burau representation using the even-step reflection $R(E) = L(E)L(-E)$, confirming the coefficients recorded in Appendix A.
 
-To run the master verification suite and computationally prove the core theorems, ensure SageMath is installed and execute:
+### Section 3: Spectral Factorization and Chebyshev Structure
 
-```bash
-sage reproduce_paper_results.sage
+* **`resultant_expansion.sage`**
+Executes the multivariable resultant elimination over the reciprocal constraint $w^2 - uw + 1 = 0$. This script formally computes the algebraic expansion that verifies the polynomial identity $R(x, u) = -x^3(u - v)(u - v + 2)^2$ utilized in Lemma 3.5 and Appendix B.
+* **`verify_spectral_factorization.sage`**
+Symbolically and numerically verifies Theorem 3.7. It constructs the explicit trigonometric product representation of $A_{2n+1}(z)$ and cross-verifies the expanded coefficients against the direct topological determinant expansions for $n \le 5$.
+
+### Sections 4 & 5: Combinatorics and Wronskian Bounds
+
+* **`empirical_wronskian_check.py`**
+Evaluates the discrete Wronskian $\Delta_{n,k}$ utilizing the terminating ${}_4F_3$ hypergeometric binomial convolution (Theorem 4.3). This script uses arbitrary-precision integer arithmetic to empirically confirm strict log-concavity across the finite computational gap up to $n=51$ (crossing length $q=103$), demonstrating discrete structural positivity where global continuous Taylor bounds are obstructed.
+
+## Requirements
+
+* **SageMath** (v10.0+ recommended) for symbolic matrix evaluations, resultant algebraic geometry, and Laurent polynomial structures.
+* **Python 3** for executing the arbitrary-precision integer combinatorial sums.
