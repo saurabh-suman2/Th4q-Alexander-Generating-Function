@@ -1,6 +1,6 @@
 # Computational Verification Suite for 4-Strand Turk's Head Knots
 
-This repository contains the computational scripts used to evaluate representations, verify algebraic identities, and empirically test discrete bounds presented in the manuscript *Rational Generating Functions and Hypergeometric Reduction of Alexander Polynomials for 4-Strand Turk's Head Knots*. 
+This repository contains the computational scripts used to evaluate representations, verify algebraic identities, and empirically test discrete bounds presented in the manuscript *Rational Generating Functions and Hypergeometric Reduction of Alexander Polynomials for 4-Strand Turk's Head Knots*, arXiv \url{https://arxiv.org/abs/2606.11301}
 
 The proofs in the manuscript hold analytically. These scripts provide exact-arithmetic validation for specific finite cases of the structural theorems, compute the polynomial expansions recorded in the appendices, and handle the matrix and combinatorial evaluations underlying the knot invariants.
 
