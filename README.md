@@ -7,7 +7,7 @@ This repository contains the computational scripts used to generate the results,
 The proofs in the manuscript hold analytically. These scripts provide exact-arithmetic validation for specific finite cases of the structural theorems, compute the polynomial expansions recorded in the appendices, and handle the matrix and combinatorial evaluations underlying the knot invariants.
 
 ## Related Work
-For the application of this computational framework to prove Fox's Trapezoidal Conjecture for this knot family, see the follow-up manuscript **[Fox's Trapezoidal Conjecture for the Four-Strand Turk's Head Knots]([arXiv link])** and its associated [verification repository](https://github.com/saurabh-suman2/fox_conjecture_Th4q).
+For the application of this computational framework to prove Fox's Trapezoidal Conjecture for this knot family, see the follow-up manuscript **[Fox's Trapezoidal Conjecture for the Four-Strand Turk's Head Knots](https://arxiv.org/pdf/2606.15256)** and its associated [verification repository](https://github.com/saurabh-suman2/fox_conjecture_Th4q).
 
 ---
 
